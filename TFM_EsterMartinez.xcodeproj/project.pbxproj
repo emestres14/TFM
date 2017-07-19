@@ -24,6 +24,7 @@
 		19F979F51F1573C80053335B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F979F41F1573C80053335B /* ChatViewController.swift */; };
 		19F979F71F15747D0053335B /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F979F61F15747D0053335B /* FavouritesViewController.swift */; };
 		19F979F91F15751A0053335B /* SetSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F979F81F15751A0053335B /* SetSettingsViewController.swift */; };
+		C32905F4228E6C7D8BEE45AD /* Pods_TFM_EsterMartinez.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7120B97AE22CD5D23B0B8F2 /* Pods_TFM_EsterMartinez.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,9 @@
 		19F979F41F1573C80053335B /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		19F979F61F15747D0053335B /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		19F979F81F15751A0053335B /* SetSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetSettingsViewController.swift; sourceTree = "<group>"; };
+		1F7D586477304F2C4A8FD95A /* Pods-TFM_EsterMartinez.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFM_EsterMartinez.release.xcconfig"; path = "Pods/Target Support Files/Pods-TFM_EsterMartinez/Pods-TFM_EsterMartinez.release.xcconfig"; sourceTree = "<group>"; };
+		4D4969C1333F6D0CE1A3FD12 /* Pods-TFM_EsterMartinez.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TFM_EsterMartinez.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TFM_EsterMartinez/Pods-TFM_EsterMartinez.debug.xcconfig"; sourceTree = "<group>"; };
+		E7120B97AE22CD5D23B0B8F2 /* Pods_TFM_EsterMartinez.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TFM_EsterMartinez.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C32905F4228E6C7D8BEE45AD /* Pods_TFM_EsterMartinez.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +69,8 @@
 			children = (
 				19F979CB1F1526E30053335B /* TFM_EsterMartinez */,
 				19F979CA1F1526E30053335B /* Products */,
+				3C7BFD4952E37C67E3F96440 /* Pods */,
+				54DD40976DEF959E8F5474B4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +107,23 @@
 			path = TFM_EsterMartinez;
 			sourceTree = "<group>";
 		};
+		3C7BFD4952E37C67E3F96440 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4D4969C1333F6D0CE1A3FD12 /* Pods-TFM_EsterMartinez.debug.xcconfig */,
+				1F7D586477304F2C4A8FD95A /* Pods-TFM_EsterMartinez.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		54DD40976DEF959E8F5474B4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E7120B97AE22CD5D23B0B8F2 /* Pods_TFM_EsterMartinez.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -107,9 +131,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19F979DD1F1526E40053335B /* Build configuration list for PBXNativeTarget "TFM_EsterMartinez" */;
 			buildPhases = (
+				81F56CC3AD7B4F6188B30A0E /* [CP] Check Pods Manifest.lock */,
 				19F979C51F1526E30053335B /* Sources */,
 				19F979C61F1526E30053335B /* Frameworks */,
 				19F979C71F1526E30053335B /* Resources */,
+				57AEF1B91319ECA513D9D08F /* [CP] Embed Pods Frameworks */,
+				87879FA22062C8C0EF05C13B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -166,6 +193,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		57AEF1B91319ECA513D9D08F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TFM_EsterMartinez/Pods-TFM_EsterMartinez-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81F56CC3AD7B4F6188B30A0E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		87879FA22062C8C0EF05C13B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TFM_EsterMartinez/Pods-TFM_EsterMartinez-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		19F979C51F1526E30053335B /* Sources */ = {
@@ -229,6 +304,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -279,6 +355,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -306,6 +383,7 @@
 		};
 		19F979DE1F1526E40053335B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D4969C1333F6D0CE1A3FD12 /* Pods-TFM_EsterMartinez.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TFM_EsterMartinez/Info.plist;
@@ -318,6 +396,7 @@
 		};
 		19F979DF1F1526E40053335B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F7D586477304F2C4A8FD95A /* Pods-TFM_EsterMartinez.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TFM_EsterMartinez/Info.plist;
