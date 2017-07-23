@@ -17,12 +17,14 @@ class ContentDetailsViewController: UIViewController {
     
     @IBOutlet weak var commentsTable: UITableView!
     
-    @IBOutlet weak var favouriteButton: UIButton!
+    //@IBOutlet weak var starRating: CosmosView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        var imagen = UIImage(named: "add-star")
+        imagen = imagen?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: imagen, style: .done, target: self, action:#selector(self.modifyFavourites(sender:)))
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,17 +33,10 @@ class ContentDetailsViewController: UIViewController {
     }
     
 
-    @IBAction func favouritePressed(_ sender: AnyObject) {
+    func modifyFavourites (sender: UIBarButtonItem) {
+        var imagen = UIImage(named: "add-star-selected")
+        imagen = imagen?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: imagen, style: .done, target: self, action:#selector(self.modifyFavourites(sender:)))
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

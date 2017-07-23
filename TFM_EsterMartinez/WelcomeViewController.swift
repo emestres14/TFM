@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
+
 class WelcomeViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var buttonMoreInfo: UIButton!
