@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>80073244273-tdte4po1ml72o8lun7n2450knnj9hfcu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.80073244273-tdte4po1ml72o8lun7n2450knnj9hfcu</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDHdCcQAey9lhwwUKnINJZogIk14CfajLg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>80073244273</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>UJI.TFM-EsterMartinez</string>
+	<key>PROJECT_ID</key>
+	<string>tfm2017-bb48b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tfm2017-bb48b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:80073244273:ios:f29fca812093f034</string>
+	<key>DATABASE_URL</key>
+	<string>https://tfm2017-bb48b.firebaseio.com</string>
+</dict>
+</plist>
