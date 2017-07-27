@@ -15,6 +15,8 @@ struct User {
 }
 
 class ChatViewController: JSQMessagesViewController {
+    var usuario1: String!
+    var usuario2: NSString!
 
     let user1 = User(id: "1", name: "usuario1")
     let user2 = User(id: "2", name: "usuario2")

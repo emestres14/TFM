@@ -13,12 +13,14 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var currentUser = Usuario()
+    //var currentUser = Usuario()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
         
-        currentUser.nombre = "jgil"
+        //currentUser.nombre = "jgil"
+        let defaults = [iniciarAutomatKey: false, usuarioKey: "jgil", contrasenyaKey: "probando", nombreKey: "Jose Gil", loggeadoKey: false] as [String: Any]
+        UserDefaults.standard.register(defaults: defaults)
         
         return true
     }

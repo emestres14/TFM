@@ -18,16 +18,18 @@ class ContactsViewController: UIViewController, UISearchResultsUpdating, UIPicke
     var searchController: UISearchController!
     var databaseRef: FIRDatabaseReference!
     var usuarios = [NSString]()
-    var allUsers = [Usuario]()
-    var currentUser: Usuario!
-    var chatUser: Usuario!
+    var allUsers = [NSString]()
+    var currentUser: NSString!
+    var chatUser: NSString!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        self.currentUser = appDelegate.currentUser
+        self.title = "Contacts"
         
+        let defaults = UserDefaults.standard
+        currentUser = defaults.string(forKey: nombreKey) as NSString!
+        	
         databaseRef = FIRDatabase.database().reference()
         getUsersFromDatabase()
     }
@@ -37,7 +39,31 @@ class ContactsViewController: UIViewController, UISearchResultsUpdating, UIPicke
     }
     
     @IBAction func chatPressed(_ sender: AnyObject) {
-        performSegue(withIdentifier: "contact2chat", sender: self)
+        let defaults = UserDefaults.standard
+        let estaLoggeado = defaults.bool(forKey: loggeadoKey)
+        let inicioAuto = defaults.bool(forKey: iniciarAutomatKey)
+        
+        if (estaLoggeado) {
+            performSegue(withIdentifier: "contact2chat", sender: self)
+        }
+        else if (inicioAuto) {
+            defaults.set(true, forKey: loggeadoKey)
+            defaults.synchronize()
+            
+            performSegue(withIdentifier: "contact2chat", sender: self)
+        }
+        else {
+            let controller = UIAlertController(title: "You are not logged in", message:"This is required to chat", preferredStyle: .actionSheet)
+            let yesAction = UIAlertAction(title: "Log In", style: .destructive, handler: { action in
+                self.performSegue(withIdentifier: "contact2loginRegister", sender: self)
+            })
+            let noAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+            })
+            controller.addAction(yesAction)
+            controller.addAction(noAction)
+            
+            self.present(controller, animated: true, completion: nil)
+        }
     }
     
     func getUsersFromDatabase () {
@@ -50,19 +76,16 @@ class ContactsViewController: UIViewController, UISearchResultsUpdating, UIPicke
                 let userData = register?.value(forKey: userIDs[i] as String) as? NSDictionary
                 let username = userData?["nombre"] as! NSString
                 
-                if (!username.isEqual(to: (self.currentUser.nombre as String))) {
+                if (!username.isEqual(to: (self.currentUser as String))) {
                     self.usuarios.append(username)
-
-                    let user = Usuario()
-                    user.nombre = userData?["nombre"] as! NSString
-                    user.correo = userData?["correo"] as! NSString
-                    user.foto = userData?["foto"] as! NSString
-                    self.allUsers.append(user)
+                    self.allUsers.append(username)
                 }
             }
             
             self.namePicker.reloadAllComponents()
-        }) { (error) in
+            
+        })
+        { (error) in
             print(error.localizedDescription)
         }
     }
@@ -74,20 +97,16 @@ class ContactsViewController: UIViewController, UISearchResultsUpdating, UIPicke
             
             if !searchString.isEmpty {
                 for user in allUsers {
-                    let nombreForKey = user.nombre
-                    let nombreRange = (nombreForKey?.localizedStandardContains(searchString))!
+                    let nombreRange = (user.localizedStandardContains(searchString))
                     
-                    let correoForKey = user.correo
-                    let correoRange = (correoForKey?.localizedStandardContains(searchString))!
-                    
-                    if (nombreRange || correoRange) {
-                        usuarios.append(user.nombre)
+                    if nombreRange {
+                        usuarios.append(user)
                     }
                 }
             }
             else {
                 for user in allUsers {
-                    usuarios.append(user.nombre)
+                    usuarios.append(user)
                 }
             }
         }
@@ -96,6 +115,11 @@ class ContactsViewController: UIViewController, UISearchResultsUpdating, UIPicke
     
     func updateSearchResults(for searchController: UISearchController) {
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidEndEditing searchText: String) {
+        self.resignFirstResponder()
+    }
+
     
     // MARK:-
     // MARK: Picker Data Source Methods
@@ -122,18 +146,33 @@ class ContactsViewController: UIViewController, UISearchResultsUpdating, UIPicke
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let chatUserSelected = namePicker.selectedRow(inComponent: 0)
-        let chatUserName = usuarios[chatUserSelected] as String
+        let chatUserName = usuarios[chatUserSelected] as NSString
         
-        var i = 0
+        let defaults = UserDefaults.standard
+        let inicio = defaults.bool(forKey: iniciarAutomatKey)
+        let loggeado = defaults.bool(forKey: loggeadoKey)
+
+        if (inicio || loggeado) {
+            let chatVC = segue.destination as! ChatViewController
+            chatVC.usuario2 = chatUserName
+        }
+        else {
+            let loginVC = segue.destination as! LoginRegisterViewController
+            loginVC.parentVC = "contacts"
+        }
+        
+        //listVC.parentVC = "settings"
+        
+        /*var i = 0
         var enc = false
         while ((!enc) && (i < self.allUsers.count)) {
             let user = allUsers[i]
-            if (user.nombre.isEqual(to: chatUserName)) {
+            if (user.isEqual(to: chatUserName)) {
                 chatUser = user
                 enc = true
             }
             
             i += 1
-        }
+        }*/
     }
 }

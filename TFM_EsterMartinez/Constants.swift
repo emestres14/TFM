@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+let usuarioKey = "usr"
+let contrasenyaKey = "passwd"
+let nombreKey = "nombre"
+let correoKey = "correo"
+let loggeadoKey = "loginIn"
+let iniciarAutomatKey = "inicioAuto"
